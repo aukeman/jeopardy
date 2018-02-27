@@ -6,6 +6,7 @@
     <style type="text/css">
       html {
       background: #000000;
+      overflow: hidden;
       }
 
       body {
@@ -64,6 +65,25 @@
       border-color: #CAA95E;
       cursor: pointer;
       }
+
+      div.clue {
+      display:none;
+      position:absolute;
+
+      background: #060CE9;
+      color: #FFFFFF;
+
+      text-align: center;
+      font-size: 2vh;
+
+      border-radius: 10px;
+      border: 3px solid #000000;
+
+      font-family: serif;
+      font-weight: bold;
+
+      text-shadow: 4px 4px #000000;
+      }
       
     </style>
   </head>
@@ -112,12 +132,30 @@
         <td class="unanswered"><span>500</span></td>
       </tr>
     </tbody>
+    <div class="clue">
+      This is some placeholder text
+    </div>
   </table>
   <script type="text/javascript">
 $(function(){
-  $('tr.clues > td.unanswered').on('click', function(e) {
-    alert("clicked: " + e);
-  })
+  $('tr.clues > td.unanswered').click(function(e) {
+
+    var right = Math.floor( $('body').width() - ($(e.currentTarget).offset().left + $(e.currentTarget).outerWidth()) );  
+
+    var bottom = Math.floor( $('body').height() - ($(e.currentTarget).offset().top + $(e.currentTarget).outerHeight()) ); 
+
+    console.log('right: ' + right);
+    console.log('bottom: ' + bottom);
+
+    $('div.clue').css('display', 'block');
+    $('div.clue').css('top', $(e.currentTarget).offset().top + 'px');
+    $('div.clue').css('left', $(e.currentTarget).offset().left + 'px');
+    $('div.clue').css('right', right + 'px');
+    $('div.clue').css('bottom', bottom + 'px');
+    $('div.clue').css('border-radius', '10px');
+
+    $('div.clue').animate( {'top': '0px', 'left': '0px', 'bottom': '0px', 'right': '0px', 'border-radius': '25px', 'font-size': '10vh'}, 1000 );
+  });
 });
   </script>
 </html>
