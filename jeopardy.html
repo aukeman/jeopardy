@@ -79,10 +79,12 @@
       border-radius: 10px;
       border: 3px solid #000000;
 
-      font-family: serif;
-      font-weight: bold;
+      font-family: sans-serif;
+/*      font-weight: bold; */
 
       text-shadow: 4px 4px #000000;
+
+      padding: 1vh;
       }
       
     </style>
@@ -97,39 +99,39 @@
         <td>World Events</td>
       </tr>
       <tr class="clues">
-        <td class="unanswered"><span>100</span></td>
-        <td class="unanswered"><span>100</span></td>
-        <td class="unanswered"><span>100</span></td>
-        <td class="unanswered"><span>100</span></td>
-        <td class="unanswered"><span>100</span></td>
+        <td data-column="0" data-row="0" class="unanswered"><span>100</span></td>
+        <td data-column="1" data-row="0" class="unanswered"><span>100</span></td>
+        <td data-column="2" data-row="0" class="unanswered"><span>100</span></td>
+        <td data-column="3" data-row="0" class="unanswered"><span>100</span></td>
+        <td data-column="4" data-row="0" class="unanswered"><span>100</span></td>
       </tr>
       <tr class="clues">
-        <td class="unanswered"><span>200</span></td>
-        <td class="unanswered"><span>200</span></td>
-        <td class="unanswered"><span>200</span></td>
-        <td class="unanswered"><span>200</span></td>
-        <td class="unanswered"><span>200</span></td>
+        <td data-column="0" data-row="1" class="unanswered"><span>200</span></td>
+        <td data-column="1" data-row="1" class="unanswered"><span>200</span></td>
+        <td data-column="2" data-row="1" class="unanswered"><span>200</span></td>
+        <td data-column="3" data-row="1" class="unanswered"><span>200</span></td>
+        <td data-column="4" data-row="1" class="unanswered"><span>200</span></td>
       </tr>
       <tr class="clues">
-        <td class="unanswered"><span>300</span></td>
-        <td class="unanswered"><span>300</span></td>
-        <td class="unanswered"><span>300</span></td>
-        <td class="unanswered"><span>300</span></td>
-        <td class="unanswered"><span>300</span></td>
+        <td data-column="0" data-row="2" class="unanswered"><span>300</span></td>
+        <td data-column="1" data-row="2" class="unanswered"><span>300</span></td>
+        <td data-column="2" data-row="2" class="unanswered"><span>300</span></td>
+        <td data-column="3" data-row="2" class="unanswered"><span>300</span></td>
+        <td data-column="4" data-row="2" class="unanswered"><span>300</span></td>
       </tr>
       <tr class="clues">
-        <td class="unanswered"><span>400</span></td>
-        <td class="unanswered"><span>400</span></td>
-        <td class="unanswered"><span>400</span></td>
-        <td class="unanswered"><span>400</span></td>
-        <td class="unanswered"><span>400</span></td>
+        <td data-column="0" data-row="3" class="unanswered"><span>400</span></td>
+        <td data-column="1" data-row="3" class="unanswered"><span>400</span></td>
+        <td data-column="2" data-row="3" class="unanswered"><span>400</span></td>
+        <td data-column="3" data-row="3" class="unanswered"><span>400</span></td>
+        <td data-column="4" data-row="3" class="unanswered"><span>400</span></td>
       </tr>
       <tr class="clues">
-        <td class="unanswered"><span>500</span></td>
-        <td class="unanswered"><span>500</span></td>
-        <td class="unanswered"><span>500</span></td>
-        <td class="unanswered"><span>500</span></td>
-        <td class="unanswered"><span>500</span></td>
+        <td data-column="0" data-row="4" class="unanswered"><span>500</span></td>
+        <td data-column="1" data-row="4" class="unanswered"><span>500</span></td>
+        <td data-column="2" data-row="4" class="unanswered"><span>500</span></td>
+        <td data-column="3" data-row="4" class="unanswered"><span>500</span></td>
+        <td data-column="4" data-row="4" class="unanswered"><span>500</span></td>
       </tr>
     </tbody>
     <div class="clue">
@@ -140,22 +142,64 @@
 $(function(){
   $('tr.clues > td.unanswered').click(function(e) {
 
-    var right = Math.floor( $('body').width() - ($(e.currentTarget).offset().left + $(e.currentTarget).outerWidth()) );  
+    var initialTop = $(e.currentTarget).offset().top;
+    var initialLeft = $(e.currentTarget).offset().left;
+    var initialRight = Math.floor( $('body').width() - ($(e.currentTarget).offset().left + $(e.currentTarget).outerWidth()) );  
+    var initialBottom = Math.floor( $('body').height() - ($(e.currentTarget).offset().top + $(e.currentTarget).outerHeight()) ); 
 
-    var bottom = Math.floor( $('body').height() - ($(e.currentTarget).offset().top + $(e.currentTarget).outerHeight()) ); 
+    var column = parseInt( $(e.currentTarget).attr('data-column') );
+    var row = parseInt( $(e.currentTarget).attr('data-row') );
 
-    console.log('right: ' + right);
-    console.log('bottom: ' + bottom);
+    $('div.clue').off('click');
 
     $('div.clue').css('display', 'block');
-    $('div.clue').css('top', $(e.currentTarget).offset().top + 'px');
-    $('div.clue').css('left', $(e.currentTarget).offset().left + 'px');
-    $('div.clue').css('right', right + 'px');
-    $('div.clue').css('bottom', bottom + 'px');
-    $('div.clue').css('border-radius', '10px');
+    $('div.clue').css('top', initialTop + 'px');
+    $('div.clue').css('left', initialLeft + 'px');
+    $('div.clue').css('right', initialRight + 'px');
+    $('div.clue').css('bottom', initialBottom + 'px');
 
-    $('div.clue').animate( {'top': '0px', 'left': '0px', 'bottom': '0px', 'right': '0px', 'border-radius': '25px', 'font-size': '10vh'}, 1000 );
+    $('div.clue').css('font-size', '2vh');
+    $('div.clue').css('padding', '1vh');
+
+    $('div.clue').html( clues[column][row] );
+
+    $('div.clue').animate( {'top': '0px', 'left': '0px', 'bottom': '0px', 'right': '0px', 'border-radius': '25px', 'font-size': '10vh', 'padding': '5vh'}, 1000 );
+
+    setTimeout( function(){
+      $('div.clue').click(function(){
+        $(e.currentTarget).removeClass('unanswered');
+        $(e.currentTarget).off('click');
+        $('div.clue').css('display', 'none');
+      });
+    }, 5000 );
   });
 });
+
+clues = [ ['In the 1981 film<br>"The Empire Strikes Back",<br>Luke Skywalker discovers that this villain is actually his father',
+           'In the 1986 film "Top Gun", Tom Cruise is Lieutenant<br>Pete "Maverick" Mitchell,<br>a naval officer with this job that regularly takes him into the "Danger Zone"',
+           'As Dr. Emmit Brown, Christopher Lloyd<br>(no, not that one,<br>the other one)<br>built a time machine<br>out of one of these<br>in the 1985 film<br>"Back to the Future"',
+           'Economist Ben Stein had a cameo in this film as a monotone-voiced teacher giving a lecture on the--anyone? anyone?--<br>Smoot-Hawley Tariff Act<br>to a class full of<br>bored students',
+           '<p>Who you gonna call?</p><p>These four characters were the "Ghostbusters", a team of paranormal investigators from the 1984 film of the same name</p>'],
+          ['This cable television channel dedicated to playing music videos was launched on<br>August 1, 1981',
+           'In 1982, this moonwalking<br>former lead singer<br>of the Jackson Five<br>released "Thriller",<br>which is the<br>best-selling album<br>of all time',
+           'The accordion-playing parodist featured here has been delightfully skewering popular culture for nearly 40 years<p><audio controls=""><source src="https://d28julafmv4ekl.cloudfront.net/64%2F30%2F204382615_S64.mp3?response-content-type=audio%2Fmpeg&Expires=1519787258&Signature=ZuZESN7H0n3-UnOIjqOd6IuPpJTqXhIS5BRA~ekM3u96vOUjNSNC2LGASzPEbz5COb45CopXkDb2Ud4yyNyhCXLRupivr4VOjUz-cwLRbH8YtQ9xOX7Q9hRV3ZMRfoH2H3tRxwmNb2IOiJhnyJLUbkC6fU3~2aQiXkwpL~OBKBY_&Key-Pair-Id=APKAJVZTZLZ7I5XDXGUQ" type="audio/mpeg"></audio></p>',
+           'The members of this band,<br>whose 1980 hit<br>"Whip It" reached #14<br>on the billboard charts,<br>met while attending<br>Kent State University',
+           'Tommy Tutone found<br>this number on a wall<br>and famously dialed it<br>to talk to Jenny'],
+          ['These Italian brothers who were plumbers by trade had to battle monsters, collect coins, and jump over bottomless pits to rescue a princess',
+           'In this game written by a<br>Soviet programmer in 1984<br>and released for Nintendo<br>Gameboy in 1989,<br>players arrange differently shaped blocks falling from the top of the screen into<br>rows without any gaps',
+           'Their names were<br>Inky, Pinky,<br>Blinky and<br>Clyde',
+/* The hero of this 1982 arcade game in which players avoided a snake by jumping around a pyramid built of multicolored cubes would "swear" whenever he lost a life<br> */
+           '<iframe width="560" height="500" src="https://www.youtube.com/embed/HKIbhaQfs-A?rel=0&amp;showinfo=0&amp;start=170" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>',
+           'At the beginning of the 1987 adventure game<br>"The Legend of Zelda",<br>the hero meets an old man in a cave who offers one of these to the player, saying "It is dangerous to go alone, take this"'],
+          ['Cowabunga, dudes!<br>These adolescent<br>half-human half-reptile<br>crime fighters were equally skilled in the martial arts and in consuming massive amounts of pizza',
+           'Ted Danson is<br>Sam "Mayday" Malone,<br>a washed-up Red Sox<br>pitcher-turned-bartender and proprietor of this fictional Boston<br>watering hole in the<br>sitcom of the same name',
+           'In "Family Ties", Michael J. Fox is Alex P. Keaton,<br>a young Republican who butts heads with his liberal parents Elyse, an architect, and Steven, who works for a PBS TV station in this Ohio city',
+           'During the 1984 Democratic presidential primary, Walter Mondale zinged his opponent<br>Gary Hart with this famous question borrowed from an advertisement for<br>Wendy\'s hamburgers',
+           'In the 1982 television series "Knight Rider", David Hasselhoff fights crime with the help of a talking car known as KITT, which is an acronym for this'],
+          ['He was twice<br>elected president<br>during the 1980s',
+           'This reusable NASA spacecraft, designed to shuttle back and forth between Earth\'s surface and orbit, was first launched in 1981',
+           'Until November of 1989,<br>this symbol of the Cold War<br>divided the largest<br>German city',
+           'In October of 1987,<br>Baby Jessica fell into<br>and was rescued from<br>one of these',
+           'When President<br>Ferdinand Marcos<br>of the Philippines was<br>exiled in 1986,<br>his wife Imelda<br>reportedly left behind<br>over 1000 of these']];
   </script>
 </html>
