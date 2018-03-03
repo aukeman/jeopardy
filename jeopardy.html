@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>This is Jeopardy!</title>
     <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
     <style type="text/css">
@@ -84,61 +85,65 @@
 
       text-shadow: 4px 4px #000000;
 
-      padding: 1vh;
+/*      padding: 1vh; */
       }
       
     </style>
   </head>
-  <table>
-    <tbody>
-      <tr class="categories">
-        <td>Movies</td>
-        <td>Music</td>
-        <td>Video Games</td>
-        <td>Television</td>
-        <td>World Events</td>
-      </tr>
-      <tr class="clues">
-        <td data-column="0" data-row="0" class="unanswered"><span>100</span></td>
-        <td data-column="1" data-row="0" class="unanswered"><span>100</span></td>
-        <td data-column="2" data-row="0" class="unanswered"><span>100</span></td>
-        <td data-column="3" data-row="0" class="unanswered"><span>100</span></td>
-        <td data-column="4" data-row="0" class="unanswered"><span>100</span></td>
-      </tr>
-      <tr class="clues">
-        <td data-column="0" data-row="1" class="unanswered"><span>200</span></td>
-        <td data-column="1" data-row="1" class="unanswered"><span>200</span></td>
-        <td data-column="2" data-row="1" class="unanswered"><span>200</span></td>
-        <td data-column="3" data-row="1" class="unanswered"><span>200</span></td>
-        <td data-column="4" data-row="1" class="unanswered"><span>200</span></td>
-      </tr>
-      <tr class="clues">
-        <td data-column="0" data-row="2" class="unanswered"><span>300</span></td>
-        <td data-column="1" data-row="2" class="unanswered"><span>300</span></td>
-        <td data-column="2" data-row="2" class="unanswered"><span>300</span></td>
-        <td data-column="3" data-row="2" class="unanswered"><span>300</span></td>
-        <td data-column="4" data-row="2" class="unanswered"><span>300</span></td>
-      </tr>
-      <tr class="clues">
-        <td data-column="0" data-row="3" class="unanswered"><span>400</span></td>
-        <td data-column="1" data-row="3" class="unanswered"><span>400</span></td>
-        <td data-column="2" data-row="3" class="unanswered"><span>400</span></td>
-        <td data-column="3" data-row="3" class="unanswered"><span>400</span></td>
-        <td data-column="4" data-row="3" class="unanswered"><span>400</span></td>
-      </tr>
-      <tr class="clues">
-        <td data-column="0" data-row="4" class="unanswered"><span>500</span></td>
-        <td data-column="1" data-row="4" class="unanswered"><span>500</span></td>
-        <td data-column="2" data-row="4" class="unanswered"><span>500</span></td>
-        <td data-column="3" data-row="4" class="unanswered"><span>500</span></td>
-        <td data-column="4" data-row="4" class="unanswered"><span>500</span></td>
-      </tr>
-    </tbody>
-    <div class="clue">
-      This is some placeholder text
-    </div>
-  </table>
+  <body>
+    <table>
+      <tbody>
+        <tr class="categories">
+          <td>Movies</td>
+          <td>Music</td>
+          <td>Television</td>
+          <td>World Events</td>
+          <td>Potpourri</td>
+        </tr>
+        <tr class="clues">
+          <td data-column="0" data-row="0" class="unanswered"><span>100</span></td>
+          <td data-column="1" data-row="0" class="unanswered"><span>100</span></td>
+          <td data-column="2" data-row="0" class="unanswered"><span>100</span></td>
+          <td data-column="3" data-row="0" class="unanswered"><span>100</span></td>
+          <td data-column="4" data-row="0" class="unanswered"><span>100</span></td>
+        </tr>
+        <tr class="clues">
+          <td data-column="0" data-row="1" class="unanswered"><span>200</span></td>
+          <td data-column="1" data-row="1" class="unanswered"><span>200</span></td>
+          <td data-column="2" data-row="1" class="unanswered"><span>200</span></td>
+          <td data-column="3" data-row="1" class="unanswered"><span>200</span></td>
+          <td data-column="4" data-row="1" class="unanswered"><span>200</span></td>
+        </tr>
+        <tr class="clues">
+          <td data-column="0" data-row="2" class="unanswered"><span>300</span></td>
+          <td data-column="1" data-row="2" class="unanswered"><span>300</span></td>
+          <td data-column="2" data-row="2" class="unanswered"><span>300</span></td>
+          <td data-column="3" data-row="2" class="unanswered"><span>300</span></td>
+          <td data-column="4" data-row="2" class="unanswered"><span>300</span></td>
+        </tr>
+        <tr class="clues">
+          <td data-column="0" data-row="3" class="unanswered"><span>400</span></td>
+          <td data-column="1" data-row="3" class="unanswered"><span>400</span></td>
+          <td data-column="2" data-row="3" class="unanswered"><span>400</span></td>
+          <td data-column="3" data-row="3" class="unanswered"><span>400</span></td>
+          <td data-column="4" data-row="3" class="unanswered"><span>400</span></td>
+        </tr>
+        <tr class="clues">
+          <td data-column="0" data-row="4" class="unanswered"><span>500</span></td>
+          <td data-column="1" data-row="4" class="unanswered"><span>500</span></td>
+          <td data-column="2" data-row="4" class="unanswered"><span>500</span></td>
+          <td data-column="3" data-row="4" class="unanswered"><span>500</span></td>
+          <td data-column="4" data-row="4" class="unanswered"><span>500</span></td>
+        </tr>
+      </tbody>
+      <div class="clue">
+        This is some placeholder text
+      </div>
+    </table>
+  </body>
   <script type="text/javascript">
+
+stateChangeDelay=3000;
 
 answeredClues = 
   localStorage.answeredClues ? JSON.parse(localStorage.answeredClues) : [[false, false, false, false, false],
@@ -148,30 +153,31 @@ answeredClues =
                                                                          [false, false, false, false, false]];
 
 clues = [ [['In the 1981 film<br>"The Empire Strikes Back",<br>Luke Skywalker discovers that this villain is actually his father'],
-           ['In the 1986 film "Top Gun", Tom Cruise is Lieutenant<br>Pete "Maverick" Mitchell,<br>a naval officer with this job that regularly takes him into the "Danger Zone"'],
+           ['In the 1986 film "Top Gun",<br>Tom Cruise is Lieutenant<br>Pete "Maverick" Mitchell,<br>a naval officer<br>with this job that<br>regularly takes him<br>into the "Danger Zone"'],
            ['As Dr. Emmit Brown, Christopher Lloyd<br>(no, not that one,<br>the other one)<br>built a time machine<br>out of one of these<br>in the 1985 film<br>"Back to the Future"'],
-           ['Economist Ben Stein had a cameo in this film as a monotone-voiced teacher giving a lecture on the--anyone? anyone?--<br>Smoot-Hawley Tariff Act<br>to a class full of<br>bored students'],
+           ['In this film,<br> the titular youth<br>and his friends<br>skip school,<br>borrow a Ferrari,<br>explore Chicago,<br>and dance in a parade.<br>Anyone? Anyone?'],
            ['<p>Who you gonna call?</p><p>These four characters were the "Ghostbusters", a team of paranormal investigators from the 1984 film of the same name</p>']],
-          [['This cable television channel dedicated to playing music videos was launched on<br>August 1, 1981'],
+          [['This cable television<br>channel dedicated to<br>playing music videos<br>was launched on<br>August 1, 1981'],
            ['In 1982, this moonwalking<br>former lead singer<br>of the Jackson Five<br>released "Thriller",<br>which is the<br>best-selling album<br>of all time'],
            ['The accordion-playing parodist featured here has been delightfully skewering popular culture for nearly 40 years<p style="display: none"><audio controls=""><source src="https://jacobaukeman.com/yoda.mp3" type="audio/mpeg"></audio></p>', 'The accordion-playing parodist featured here has been delightfully skewering popular culture for nearly 40 years<p><audio controls=""><source src="https://jacobaukeman.com/yoda.mp3" type="audio/mpeg"></audio></p>'],
            ['The members of this band,<br>whose 1980 hit<br>"Whip It" reached #14<br>on the billboard charts,<br>met while attending<br>Kent State University'],
            ['Tommy Tutone found<br>this number on a wall<br>and famously dialed it<br>to talk to Jenny']],
-          [['These Italian brothers who were plumbers by trade had to battle monsters, collect coins, and jump over bottomless pits to rescue a princess'],
-           ['In this game written by a<br>Soviet programmer in 1984<br>and released for Nintendo<br>Gameboy in 1989,<br>players arrange differently shaped blocks falling from the top of the screen into<br>rows without any gaps'],
-           ['Their names were<br>Inky, Pinky,<br>Blinky and<br>Clyde'],
-           ['The hero of this 1982 arcade game in which players avoided a snake by jumping around a pyramid built of multicolored cubes would "swear" whenever he lost a life', '<iframe width="560" height="500" src="https://www.youtube.com/embed/HKIbhaQfs-A?rel=0&amp;showinfo=0&amp;start=175" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>'],
-           ['At the beginning of the 1987 adventure game<br>"The Legend of Zelda",<br>the hero meets an old man in a cave who offers one of these to the player, saying "It is dangerous to go alone, take this"']],
           [['Cowabunga, dudes!<br>These adolescent<br>half-human half-reptile<br>crime fighters were equally skilled in the martial arts and in consuming massive amounts of pizza'],
-           ['Ted Danson is<br>Sam "Mayday" Malone,<br>a washed-up Red Sox<br>pitcher-turned-bartender and proprietor of this fictional Boston<br>watering hole in the<br>sitcom of the same name'],
-           ['In "Family Ties", Michael J. Fox is Alex P. Keaton,<br>a young Republican who butts heads with his liberal parents Elyse, an architect, and Steven, who works for a PBS TV station in this Ohio city'],
-           ['During the 1984 Democratic presidential primary, Walter Mondale zinged his opponent<br>Gary Hart with this famous question borrowed from an advertisement for<br>Wendy\'s hamburgers'],
-           ['In the 1982 television series "Knight Rider", David Hasselhoff fights crime with the help of a talking car known as KITT, which is an acronym for this']],
-          [['He was twice<br>elected president<br>during the 1980s'],
-           ['This reusable NASA spacecraft, designed to shuttle back and forth between Earth\'s surface and orbit, was first launched in 1981'],
+           ['Ted Danson is<br>Sam "Mayday" Malone,<br>a washed-up Red Sox<br>pitcher-turned-bartender<br>and proprietor<br>of this fictional Boston<br>watering hole in the<br>sitcom of the same name'],
+           ['He has been the<br>host of Jeopardy!,<br>a popular television<br>quiz show where<br>answers are given<br>in the form of a question,<br>since 1984'],
+           ['In "Family Ties",<br>Michael J. Fox is<br>Alex P. Keaton, who<br>lives in this Ohio city with parents Elyse and Steven, sisters Mallory and Jennifer, and, in later seasons,<br>brother Andrew'],
+           ['In the 1982 television series<br>"Knight Rider",<br>David Hasselhoff fights<br>crime with the help of<br>a talking car known as KITT,<br>which is an acronym for this']],
+          [['He was twice elected<br>President of the<br>United States<br>during the 1980s'],
+           ['This reusable<br>NASA spacecraft,<br>designed to shuttle<br>back and forth between<br>Earth\'s surface and orbit,<br>was first launched in 1981'],
            ['Until November of 1989,<br>this symbol of the Cold War<br>divided the largest<br>German city'],
            ['In October of 1987,<br>Baby Jessica fell into<br>and was rescued from<br>one of these'],
-           ['When President<br>Ferdinand Marcos<br>of the Philippines was<br>exiled in 1986,<br>his wife Imelda<br>reportedly left behind<br>over 1000 of these']]];
+           ['When President<br>Ferdinand Marcos<br>of the Philippines was<br>exiled in 1986,<br>his wife Imelda<br>reportedly left behind<br>over 1000 of these']],
+          [['The fashion<br>accessory shown here<br>was a popular<br>fad among<br>teenage girls<img style="display:none" src="https://jacobaukeman.com/leg_warmers.jpg">', '<img style="height:90%" src="https://jacobaukeman.com/leg_warmers.jpg">'],
+           ['This basketball player was selected in the first round of the NBA draft by the Chicago Bulls in 1984<br>and later won six championships with<br>that team'],
+           ['These Italian brothers,<br>who were plumbers by trade,<br>had to battle monsters and<br>jump over bottomless pits<br>to rescue a princess<br>in a "super" popular<br>video game'],
+           ['This novel from author<br>Tom Clancy about a<br>renegade Russian<br>submarine was later<br>made into a movie<br>starring Alec Baldwin<br>and Sean Connery'],
+           ['During the 1984<br>presidential primary,<br>Walter Mondale zinged<br>his opponent Gary Hart<br>with this famous question<br>borrowed from an advertisement for<br>Wendy\'s hamburgers']]];
+
 
 $(function(){
 
@@ -183,6 +189,10 @@ $(function(){
     }
   } 
   
+  $('div.clue,td').contextmenu(function(e){
+    e.preventDefault();
+  });
+
   $('tr.clues > td.unanswered').click(function(e) {
 
     var initialTop = $(e.currentTarget).offset().top;
@@ -206,11 +216,11 @@ $(function(){
     $('div.clue').css('bottom', initialBottom + 'px');
 
     $('div.clue').css('font-size', '2vh');
-    $('div.clue').css('padding', '1vh');
+//    $('div.clue').css('padding', '1vh');
 
     $('div.clue').html( clueStates.shift() );
 
-    $('div.clue').animate( {'top': '0px', 'left': '0px', 'bottom': '0px', 'right': '0px', 'border-radius': '25px', 'font-size': '10vh', 'padding': '5vh'}, 1000 );
+    $('div.clue').animate( {'top': '0px', 'left': '0px', 'bottom': '0px', 'right': '0px', 'border-radius': '25px', 'font-size': '10vh', 'padding': '10px'}, 1000 );
 
     setTimeout( function(){
 
@@ -225,7 +235,7 @@ $(function(){
           setTimeout(function() {
             $('div.clue').css('cursor', 'pointer');
             $('div.clue').click(clueClickHandler) }, 
-            5000 );
+            stateChangeDelay );
         }
         else {
 
@@ -240,7 +250,7 @@ $(function(){
 
       $('div.clue').css('cursor', 'pointer');
       $('div.clue').click(clueClickHandler);
-    }, 5000 );
+    }, stateChangeDelay );
   });
 });
 
