@@ -91,60 +91,96 @@
       div.media-cache {
         display: none;
       }
+
+      div.category-reveal-row{
+        position: absolute;
+        top:0px;
+        left:0px;
+        height: 100%;
+        width: 500%
+      }
+
+      div.category-reveal {
+
+        display: inline-block;
+
+        width:20%;
+        height:100%;
+
+        border-radius: 10px;
+        border: 3px solid #000000;
+
+        font-family: sans-serif;
+        font-weight: bold;
+
+        text-shadow: 4px 4px #000000;
+
+        background: #060CE9;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 5vh;
+      }
       
     </style>
   </head>
   <body>
+    <div class="media-cache">
+      <audio id="yoda" src="https://jacobaukeman.com/yoda.mp3" />
+      <audio id="fill-board" src="https://jacobaukeman.com/board_fill.wav" />
+      <audio id="ding"src="https://jacobaukeman.com/ding.wav" />
+      <audio id="final-jeopardy" src="https://jacobaukeman.com/final_jeopardy.mp3" />
+      <img src="https://jacobaukeman.com/leg_warmers.jpg" />
+    </div>
+    <div class="category-reveal-row">
+      <div class="category-reveal" data-category="0"></div>
+      <div class="category-reveal" data-category="0"></div>
+      <div class="category-reveal" data-category="0"></div>
+      <div class="category-reveal" data-category="0"></div>
+      <div class="category-reveal" data-category="0"></div>
+    </div>
     <table>
-      <div class="media-cache">
-        <audio src="https://jacobaukeman.com/yoda.mp3" />
-        <audio src="https://jacobaukeman.com/board_fill.wav" />
-        <audio src="https://jacobaukeman.com/ding.wav" />
-        <audio src="https://jacobaukeman.com/final_jeopardy.mp3" />
-        <img src="https://jacobaukeman.com/leg_warmers.jpg" />
-      </div>
       <tbody>
         <tr class="categories">
-          <td>Movies</td>
-          <td>Music</td>
-          <td>Television</td>
-          <td>World Events</td>
-          <td>Potpourri</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <tr class="clues">
-          <td data-column="0" data-row="0" class="unanswered"><span>100</span></td>
-          <td data-column="1" data-row="0" class="unanswered"><span>100</span></td>
-          <td data-column="2" data-row="0" class="unanswered"><span>100</span></td>
-          <td data-column="3" data-row="0" class="unanswered"><span>100</span></td>
-          <td data-column="4" data-row="0" class="unanswered"><span>100</span></td>
+          <td data-column="0" data-row="0"><span>100</span></td>
+          <td data-column="1" data-row="0"><span>100</span></td>
+          <td data-column="2" data-row="0"><span>100</span></td>
+          <td data-column="3" data-row="0"><span>100</span></td>
+          <td data-column="4" data-row="0"><span>100</span></td>
         </tr>
         <tr class="clues">
-          <td data-column="0" data-row="1" class="unanswered"><span>200</span></td>
-          <td data-column="1" data-row="1" class="unanswered"><span>200</span></td>
-          <td data-column="2" data-row="1" class="unanswered"><span>200</span></td>
-          <td data-column="3" data-row="1" class="unanswered"><span>200</span></td>
-          <td data-column="4" data-row="1" class="unanswered"><span>200</span></td>
+          <td data-column="0" data-row="1"><span>200</span></td>
+          <td data-column="1" data-row="1"><span>200</span></td>
+          <td data-column="2" data-row="1"><span>200</span></td>
+          <td data-column="3" data-row="1"><span>200</span></td>
+          <td data-column="4" data-row="1"><span>200</span></td>
         </tr>
         <tr class="clues">
-          <td data-column="0" data-row="2" class="unanswered"><span>300</span></td>
-          <td data-column="1" data-row="2" class="unanswered"><span>300</span></td>
-          <td data-column="2" data-row="2" class="unanswered"><span>300</span></td>
-          <td data-column="3" data-row="2" class="unanswered"><span>300</span></td>
-          <td data-column="4" data-row="2" class="unanswered"><span>300</span></td>
+          <td data-column="0" data-row="2"><span>300</span></td>
+          <td data-column="1" data-row="2"><span>300</span></td>
+          <td data-column="2" data-row="2"><span>300</span></td>
+          <td data-column="3" data-row="2"><span>300</span></td>
+          <td data-column="4" data-row="2"><span>300</span></td>
         </tr>
         <tr class="clues">
-          <td data-column="0" data-row="3" class="unanswered"><span>400</span></td>
-          <td data-column="1" data-row="3" class="unanswered"><span>400</span></td>
-          <td data-column="2" data-row="3" class="unanswered"><span>400</span></td>
-          <td data-column="3" data-row="3" class="unanswered"><span>400</span></td>
-          <td data-column="4" data-row="3" class="unanswered"><span>400</span></td>
+          <td data-column="0" data-row="3"><span>400</span></td>
+          <td data-column="1" data-row="3"><span>400</span></td>
+          <td data-column="2" data-row="3"><span>400</span></td>
+          <td data-column="3" data-row="3"><span>400</span></td>
+          <td data-column="4" data-row="3"><span>400</span></td>
         </tr>
         <tr class="clues">
-          <td data-column="0" data-row="4" class="unanswered"><span>500</span></td>
-          <td data-column="1" data-row="4" class="unanswered"><span>500</span></td>
-          <td data-column="2" data-row="4" class="unanswered"><span>500</span></td>
-          <td data-column="3" data-row="4" class="unanswered"><span>500</span></td>
-          <td data-column="4" data-row="4" class="unanswered"><span>500</span></td>
+          <td data-column="0" data-row="4"><span>500</span></td>
+          <td data-column="1" data-row="4"><span>500</span></td>
+          <td data-column="2" data-row="4"><span>500</span></td>
+          <td data-column="3" data-row="4"><span>500</span></td>
+          <td data-column="4" data-row="4"><span>500</span></td>
         </tr>
       </tbody>
       <div class="clue">
@@ -154,14 +190,24 @@
   </body>
   <script type="text/javascript">
 
+fillBoardOrder = [[1,3], [2,1], [4,0], [2,4], [1,1],
+                  [4,3], [3,0], [0,2], [3,4], [0,0],
+                  [3,1], [4,2], [1,0], [1,4], [3,3],
+                  [2,0], [4,3], [1,2], [2,3], [4,4],
+                  [4,0], [3,2], [4,2], [4,1], [2,2]];
+
+
 stateChangeDelay=3000;
 
-answeredClues = 
-  localStorage.answeredClues ? JSON.parse(localStorage.answeredClues) : [[false, false, false, false, false],
-                                                                         [false, false, false, false, false],
-                                                                         [false, false, false, false, false],
-                                                                         [false, false, false, false, false],
-                                                                         [false, false, false, false, false]];
+gameState = 
+  localStorage.gameState ? JSON.parse(localStorage.gameState) : {"state": "unstarted",
+                                                                 "answeredClues": [[false, false, false, false, false],
+                                                                                   [false, false, false, false, false],
+                                                                                   [false, false, false, false, false],
+                                                                                   [false, false, false, false, false],
+                                                                                   [false, false, false, false, false]]};
+
+categories = ['Movies', 'Music', 'Television', 'World<br>Events', 'Potpourri'];
 
 clues = [ [['In the 1981 film<br>"The Empire Strikes Back",<br>Luke Skywalker discovers that this villain is actually his father'],
            ['In the 1986 film "Top Gun",<br>Tom Cruise is Lieutenant<br>Pete "Maverick" Mitchell,<br>a naval officer<br>with this job that<br>regularly takes him<br>into the "Danger Zone"'],
@@ -194,29 +240,29 @@ finalJeopardyState = ['<div style="margin-top: 1.5em; font-size: 15vh; color: #C
                       '<div style="margin-top: 1em">These<br>paranormal pursuers<br>are named<br>Inky, Blinky,<br>Pinky, and<br>Clyde</div><audio autoplay="true" src="https://jacobaukeman.com/ding.wav" />', 
                       '<div style="margin-top: 1em">These<br>paranormal pursuers<br>are named<br>Inky, Blinky,<br>Pinky, and<br>Clyde</div><audio autoplay="true" src="https://jacobaukeman.com/final_jeopardy.mp3" />']
 
-
-states = [ /* populateBoard, */
-           /* revealCategories, */
-           /* jeopardy, */
-           /* finalJeopardy */ ];
-
 $(function(){
 
-  var roundComplete = true;
-  for ( var column = 0; column < answeredClues.length; ++column ){
-    for ( var row = 0; row < answeredClues[column].length; ++row ){
-      if ( answeredClues[column][row] ){
-        $('tr.clues > td[data-column='+column+'][data-row='+row+']').removeClass('unanswered');
-      }
-      else{
-        roundComplete = false;
+  if ( gameState.state === 'unstarted' ){
+    fillBoard();
+  }
+  else if ( gameState.state === 'jeopardy' ){
+    resetBoard();
+  }
+  else if ( gameState.state === 'final_jeopardy' ){
+    transitionToFinalJeopardy();
+  }
+});
+
+function resetBoard(){
+
+  for ( var column = 0; column < gameState.answeredClues.length; ++column ){
+    for ( var row = 0; row < gameState.answeredClues[column].length; ++row ){
+      if ( !gameState.answeredClues[column][row] ){
+        $('tr.clues > td[data-column='+column+'][data-row='+row+']').addClass('unanswered');
       }
     }
   } 
-  if ( roundComplete ){
-    transitionToFinalJeopardy();
-  }
-  
+
   $('div.clue,td').contextmenu(function(e){
     e.preventDefault();
   });
@@ -244,7 +290,7 @@ $(function(){
     $('div.clue').css('bottom', initialBottom + 'px');
 
     $('div.clue').css('font-size', '2vh');
-//    $('div.clue').css('padding', '1vh');
+    //    $('div.clue').css('padding', '1vh');
 
     $('div.clue').html( clueStates.shift() );
 
@@ -263,27 +309,16 @@ $(function(){
           setTimeout(function() {
             $('div.clue').css('cursor', 'pointer');
             $('div.clue').click(clueClickHandler) }, 
-            stateChangeDelay );
+                     stateChangeDelay );
         }
         else {
-
-          answeredClues[column][row] = true;
-          localStorage.answeredClues = JSON.stringify(answeredClues);
+          gameState.answeredClues[column][row] = true;
+          localStorage.gameState = JSON.stringify(gameState);
 
           $(e.currentTarget).removeClass('unanswered');
           $('div.clue').css('display', 'none');
 
-          // are all clues answered? 
-          var roundComplete = true;
-          for ( var i = 0; i < answeredClues.length; ++i ){
-            for ( var j = 0; j < answeredClues[i].length; ++j ){
-              if ( !answeredClues[i][j] ){
-                roundComplete = false;
-              }
-            }
-          }
-          
-          if ( roundComplete ){
+          if ( 0 == $('td.unanswered').length ){
             transitionToFinalJeopardy();
           }
         }
@@ -293,9 +328,35 @@ $(function(){
       $('div.clue').click(clueClickHandler);
     }, stateChangeDelay );
   });
-});
+}
+
+function fillBoard(){
+  $('audio#fill-board')[0].play()
+
+  var fillCell = function() {
+    if ( 0 < fillBoardOrder.length ){
+      var cellToPopulate = fillBoardOrder.shift();
+      var column = cellToPopulate[0];
+      var row = cellToPopulate[1];
+      $('tr.clues > td[data-column='+column+'][data-row='+row+']').addClass('unanswered');      
+
+      setTimeout( fillCell, 150 );
+    }
+    else {
+      gameState.state = 'jeopardy';
+      localStorage.gameState = JSON.stringify(gameState);
+      resetBoard();
+    }
+  }
+
+  fillCell();
+}
 
 function transitionToFinalJeopardy(){
+  
+  gameState.state = 'final_jeopardy';
+  localStorage.gameState = JSON.stringify(gameState);
+
   $('td').css('cursor', 'pointer');
   $('td').click(function(){
     $('td').css('cursor', 'default');
