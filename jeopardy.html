@@ -87,11 +87,22 @@
 
 /*      padding: 1vh; */
       }
+
+      div.media-cache {
+        display: none;
+      }
       
     </style>
   </head>
   <body>
     <table>
+      <div class="media-cache">
+        <audio src="https://jacobaukeman.com/yoda.mp3" />
+        <audio src="https://jacobaukeman.com/board_fill.wav" />
+        <audio src="https://jacobaukeman.com/ding.wav" />
+        <audio src="https://jacobaukeman.com/final_jeopardy.mp3" />
+        <img src="https://jacobaukeman.com/leg_warmers.jpg" />
+      </div>
       <tbody>
         <tr class="categories">
           <td>Movies</td>
@@ -159,7 +170,7 @@ clues = [ [['In the 1981 film<br>"The Empire Strikes Back",<br>Luke Skywalker di
            ['<p>Who you gonna call?</p><p>These four characters were the "Ghostbusters", a team of paranormal investigators from the 1984 film of the same name</p>']],
           [['This cable television<br>channel dedicated to<br>playing music videos<br>was launched on<br>August 1, 1981'],
            ['In 1982, this moonwalking<br>former lead singer<br>of the Jackson Five<br>released "Thriller",<br>which is the<br>best-selling album<br>of all time'],
-           ['The accordion-playing parodist featured here has been delightfully skewering popular culture for nearly 40 years<p style="display: none"><audio controls=""><source src="https://jacobaukeman.com/yoda.mp3" type="audio/mpeg"></audio></p>', 'The accordion-playing parodist featured here has been delightfully skewering popular culture for nearly 40 years<p><audio controls=""><source src="https://jacobaukeman.com/yoda.mp3" type="audio/mpeg"></audio></p>'],
+           ['The accordion-playing parodist featured here has been delightfully skewering popular culture for nearly 40 years', 'The accordion-playing parodist featured here has been delightfully skewering popular culture for nearly 40 years<audio autoplay="true" src="https://jacobaukeman.com/yoda.mp3" />'],
            ['The members of this band,<br>whose 1980 hit<br>"Whip It" reached #14<br>on the billboard charts,<br>met while attending<br>Kent State University'],
            ['Tommy Tutone found<br>this number on a wall<br>and famously dialed it<br>to talk to Jenny']],
           [['Cowabunga, dudes!<br>These adolescent<br>half-human half-reptile<br>crime fighters were equally skilled in the martial arts and in consuming massive amounts of pizza'],
@@ -178,17 +189,33 @@ clues = [ [['In the 1981 film<br>"The Empire Strikes Back",<br>Luke Skywalker di
            ['In October of 1987,<br>Baby Jessica fell into<br>and was rescued from<br>one of these'],
            ['During the 1984<br>presidential primary,<br>Walter Mondale zinged<br>his opponent Gary Hart<br>with this famous question<br>borrowed from an advertisement for<br>Wendy\'s hamburgers']]];
 
+finalJeopardyState = ['<div style="margin-top: 1.5em; font-size: 15vh; color: #CAA95E; font-weight: bold">FINAL</div><div style="font-size: 20vh; font-family: \'Arial Narrow\'">JEOPARDY!</div>', 
+                      '<div style="margin-top: 3.5em">Classic 1980s<br>Arcade Games</div><audio autoplay="true" src="https://jacobaukeman.com/ding.wav" />',
+                      '<div style="margin-top: 1em">These<br>paranormal pursuers<br>are named<br>Inky, Blinky,<br>Pinky, and<br>Clyde</div><audio autoplay="true" src="https://jacobaukeman.com/ding.wav" />', 
+                      '<div style="margin-top: 1em">These<br>paranormal pursuers<br>are named<br>Inky, Blinky,<br>Pinky, and<br>Clyde</div><audio autoplay="true" src="https://jacobaukeman.com/final_jeopardy.mp3" />']
 
+
+states = [ /* populateBoard, */
+           /* revealCategories, */
+           /* jeopardy, */
+           /* finalJeopardy */ ];
 
 $(function(){
 
+  var roundComplete = true;
   for ( var column = 0; column < answeredClues.length; ++column ){
     for ( var row = 0; row < answeredClues[column].length; ++row ){
       if ( answeredClues[column][row] ){
         $('tr.clues > td[data-column='+column+'][data-row='+row+']').removeClass('unanswered');
       }
+      else{
+        roundComplete = false;
+      }
     }
   } 
+  if ( roundComplete ){
+    transitionToFinalJeopardy();
+  }
   
   $('div.clue,td').contextmenu(function(e){
     e.preventDefault();
@@ -245,8 +272,21 @@ $(function(){
 
           $(e.currentTarget).removeClass('unanswered');
           $('div.clue').css('display', 'none');
-        }
 
+          // are all clues answered? 
+          var roundComplete = true;
+          for ( var i = 0; i < answeredClues.length; ++i ){
+            for ( var j = 0; j < answeredClues[i].length; ++j ){
+              if ( !answeredClues[i][j] ){
+                roundComplete = false;
+              }
+            }
+          }
+          
+          if ( roundComplete ){
+            transitionToFinalJeopardy();
+          }
+        }
       };
 
       $('div.clue').css('cursor', 'pointer');
@@ -255,6 +295,39 @@ $(function(){
   });
 });
 
+function transitionToFinalJeopardy(){
+  $('td').css('cursor', 'pointer');
+  $('td').click(function(){
+    $('td').css('cursor', 'default');
+    $('td').off('click');
+    advanceFinalJeopardyState();
+  });
+}
+
+function advanceFinalJeopardyState(){
+  $('div.clue').off('click');
+  
+  $('div.clue').css('cursor', 'default');
+  
+  $('div.clue').css('display', 'block');
+  $('div.clue').css('top', '0px');
+  $('div.clue').css('left', '0px');
+  $('div.clue').css('right', '0px');
+  $('div.clue').css('bottom', '0px');
+
+  $('div.clue').css('border-radius', '25px');
+  $('div.clue').css('font-size', '10vh'); 
+  $('div.clue').css('padding', '10px');
+  
+  $('div.clue').html( finalJeopardyState.shift() );
+
+  if ( 0 < finalJeopardyState.length ){
+    setTimeout(function() {
+      $('div.clue').css('cursor', 'pointer');
+      $('div.clue').click(advanceFinalJeopardyState); 
+    }, stateChangeDelay );
+  }
+}
 
 </script>
   </html>
